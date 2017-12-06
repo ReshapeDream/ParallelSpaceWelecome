@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_lg_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pg1_1" />
+
+    <ImageView
+        android:id="@+id/iv_lg_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pg1_2"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/lLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/wechat2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lTitle"
+        android:layout_marginTop="90dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="工作圈与生活圈
+互不干扰"
+        android:textColor="#fff"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="通过平行空间同时运行两个微信账号，将你的
+工作与生活轻松分离"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/lTitle" />
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="155.5dp"
+        android:layout_height="220dp"
+        android:background="@drawable/phone1"
+        android:gravity="bottom|center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <FrameLayout
+            android:id="@+id/fl"
+            android:layout_width="106.5dp"
+            android:layout_height="192dp">
+            <ImageView
+                android:id="@+id/iv_sm_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/weixin1" />
+
+            <ImageView
+                android:id="@+id/iv_sm_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/weixin2"
+                android:visibility="invisible"/>
+        </FrameLayout>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

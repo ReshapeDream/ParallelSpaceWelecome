@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_lg_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/g11" />
+
+    <ImageView
+        android:id="@+id/iv_lg_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/g22"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/lLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/game_l_0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:gravity="center"
+        android:text="双倍经验
+双倍乐趣"
+        android:textColor="#fff"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="双开COC账号，大小号疯狂PK，加速升级
+让你完的更畅快"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/lTitle" />
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:padding="0dp"
+        android:layout_width="240dp"
+        android:layout_height="154dp"
+        android:background="@drawable/phone2"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lDes">
+
+        <FrameLayout
+            android:id="@+id/fl"
+            android:layout_width="164.5dp"
+            android:layout_height="93dp"
+            android:layout_marginTop="14dp">
+
+            <ImageView
+                android:id="@+id/iv_sm_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/game1"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/iv_sm_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/game2"
+                android:scaleType="centerCrop"
+                android:visibility="invisible" />
+        </FrameLayout>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
