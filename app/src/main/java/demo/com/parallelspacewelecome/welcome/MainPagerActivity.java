@@ -56,8 +56,8 @@ public class MainPagerActivity extends AppCompatActivity implements IPagerChange
         mainPagerAdapter = new MFragmentStatePagerAdapter(fm, fragments);
         mainContentViewpager = findViewById(R.id.main_viewpager);
         mainContentViewpager.setAdapter(mainPagerAdapter);
-        mainContentViewpager.setCurrentItem(0);
         mainContentViewpager.setScrollDuration(1000);
+//        mainContentViewpager.setCurrentItem(0);
         mainPagerAdapter.setPagerChangeListener(mainContentViewpager, this);
     }
 
@@ -190,22 +190,29 @@ public class MainPagerActivity extends AppCompatActivity implements IPagerChange
         }
     }
 
+    boolean isFirstShow=true;
     private void setFideInViewTrans(View fadeInView, int position) {
         in = position;
-        handler.postDelayed(runShow, 100);
+        int delay=100;
         switch (position) {
             case 0:
+                if(isFirstShow){//首次展示没有滚动，会导致切换过快，delay时间加长
+                    delay=700;
+                    isFirstShow=false;
+                }
                 break;
             case 1:
                 break;
             case 2:
                 break;
         }
+        handler.postDelayed(runShow, delay);
     }
+
 
     private void resetFadeOutView(View fadeOutView, int position) {
         out = position;
-        handler.postDelayed(runHide, 0);
+        int delay=100;
         switch (position) {
             case 0:
                 break;
@@ -214,6 +221,7 @@ public class MainPagerActivity extends AppCompatActivity implements IPagerChange
             case 2:
                 break;
         }
+        handler.postDelayed(runHide, delay);
     }
 
     Handler handler = new Handler();
