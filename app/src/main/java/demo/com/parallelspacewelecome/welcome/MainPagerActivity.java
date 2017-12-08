@@ -137,12 +137,12 @@ public class MainPagerActivity extends AppCompatActivity implements IPagerChange
         degreeOut = 60f;
         rotationIn = fadeInPosition > fadeOutPosition ? (1 - fadeOutTransOffset) * degreeIn : (1 - fadeOutTransOffset) * -degreeIn;
         rotationOut = fadeInPosition > fadeOutPosition ? fadeOutTransOffset * -degreeOut : fadeOutTransOffset * degreeOut;
-        oRl.setPivotX(fadeOutView.getWidth() / 2);
-        oRl.setPivotY(fadeOutView.getHeight());
+        oRl.setPivotX(oRl.getWidth() / 2);
+        oRl.setPivotY(oRl.getHeight());
         oRl.setRotation(rotationOut);
 
-        iRl.setPivotX(fadeInView.getWidth() / 2);
-        iRl.setPivotY(fadeInView.getHeight());
+        iRl.setPivotX(iRl.getWidth() / 2);
+        iRl.setPivotY(iRl.getHeight());
         iRl.setRotation(rotationIn);
 
         float logoOutRatio;

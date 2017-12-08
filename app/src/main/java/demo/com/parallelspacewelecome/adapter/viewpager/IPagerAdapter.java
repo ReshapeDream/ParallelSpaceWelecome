@@ -159,7 +159,7 @@ public abstract class IPagerAdapter<T> extends PagerAdapter implements ViewPager
         //positionOffset 从小到大，表明从左往右滑动 SelectedPosition 0->1->2->3
         //positionOffset 从大到小，表明从右往左滑动 SelectedPosition 3->2->1->0
         if (positionOffset == 0f || (lastPositionOffset - positionOffset > 0.9f || lastPositionOffset - positionOffset < -0.9f)) {//刚开始滑动或者改变方向
-            lastPositionOffset = 0;
+            lastPositionOffset = positionOffset;
             slidingDirectionConfirmed = false;
             slidingToRight = false;
             //松手后 selectedPosition已经变化，但是滑动并未停止
@@ -172,10 +172,6 @@ public abstract class IPagerAdapter<T> extends PagerAdapter implements ViewPager
             return;
         }
 
-        if (lastPositionOffset == 0) {
-            lastPositionOffset = positionOffset;
-        }
-
         if (!slidingDirectionConfirmed && lastPositionOffset != 0) {
             if (lastPositionOffset > positionOffset) {
                 slidingDirectionConfirmed = true;
@@ -186,26 +182,6 @@ public abstract class IPagerAdapter<T> extends PagerAdapter implements ViewPager
                 slidingDirectionConfirmed = true;
                 slidingToRight = true;
             }
-
-            if (slidingToRight) {//向右滑动
-                if (iPagerChangeListener != null && fadingOutNode.getNextNode() != null && fadingOutPosition < (getCount() - 1)) {
-                    this.iPagerChangeListener.onStartScroll(
-                            fadingOutNode.getmView(),
-                            fadingOutNode.getNextNode().getmView(),
-                            fadingOutPosition,
-                            fadingOutPosition + 1);
-                }
-            } else {//向左滑动
-                if (iPagerChangeListener != null && fadingOutNode.getPreNode() != null && fadingOutPosition > 0) {
-                    this.iPagerChangeListener.onStartScroll(
-                            fadingOutNode.getmView(),
-                            fadingOutNode.getPreNode().getmView(),
-                            fadingOutPosition,
-                            fadingOutPosition-1);
-                }
-            }
-        } else {
-            lastPositionOffset = positionOffset;
         }
 
         if (slidingDirectionConfirmed) {
@@ -229,6 +205,7 @@ public abstract class IPagerAdapter<T> extends PagerAdapter implements ViewPager
                 }
             }
         }
+        lastPositionOffset = positionOffset;
     }
 
     //
